@@ -1,38 +1,64 @@
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <title>dillzy</title> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script> 
-    
-  
-  <style> 
-    body { 
-      margin: 0; 
-    } 
-    .jwplayer { 
-      position: absolute !important; 
-    } 
-    .jwplayer.jw-flag-aspect-mode { 
-      min-height: 100%; 
-      max-height: 100%; 
-    } 
-  </style> 
-</head> 
-<body> 
-  <div id="jwplayerDiv"></div> 
-  <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const stream = urlParams.get('url') || "https://mini.allinonereborn.fun/jiotv-in/app/ts_live_1984.m3u8";
-       jwplayer("jwplayerDiv").setup({ 
-      file: stream, 
-      position: 'bottom', 
-      autostart: true, 
-      stretching: "uniform", 
-      width: "100%", 
-      type: "hls"
-     }); 
-  </script> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Live Stream</title>
+
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  /* 16:9 Responsive Wrapper */
+  .iframe-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding-top: 56.25%; /* 16:9 ratio */
+  }
+
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* Telegram Button */
+  .telegram-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 24px;
+    background: #0088cc;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="iframe-container">
+  <iframe 
+    src="https://cricketstan.github.io/Star-Sports-2-Hindi/"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<a class="telegram-btn" href="https://t.me/+OACGYQBHrIJmM2Y1" target="_blank">
+  Join Telegram
+</a>
+
+</body>
 </html>
