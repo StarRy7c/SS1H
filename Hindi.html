@@ -1,24 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Embed HLS via iframe</title>
+  <meta charset="UTF-8" />
+  <title>HLS Player</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <style>
-    body { margin: 0; background: #000; display:flex; height:100vh; align-items:center; justify-content:center; }
-    iframe { width: 100%; height: 100%; border: 0; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      height: 100%;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
-  <iframe id="playerFrame" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" allow="autoplay; fullscreen"></iframe>
 
-  <script>
-    // The HLS url to embed
-    const hlsUrl = "https://abgvw6taaaaaaaamjqlcdv4tnjzjf.live-cf.cdn.hotstar.com/hls/live/2027118/inallow-indvssa-2025/hin/1540056406/15mindvrm01d5ba3904ff0a432a92833c40d409e99b14december2025/master_ap_1080_5.m3u8";
+<video id="video" controls autoplay></video>
 
-    // Point the iframe to player.html and pass the stream as a URL parameter (encoded)
-    const iframe = document.getElementById("playerFrame");
-    iframe.src = "player.html?stream=" + encodeURIComponent(hlsUrl);
-  </script>
+<script>
+  const video = document.getElementById('video');
+  const videoSrc =
+    "https://abgvw6taaaaaaaamjqlcdv4tnjzjf.live-cf.cdn.hotstar.com/hls/live/2027118/inallow-indvssa-2025/hin/1540056406/15mindvrm01d5ba3904ff0a432a92833c40d409e99b14december2025/master_ap_1080_5.m3u8";
+
+  if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+</script>
+
 </body>
 </html>
